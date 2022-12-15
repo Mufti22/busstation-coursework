@@ -1,0 +1,95 @@
+ <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title logo"><a href="/">Bus Station IS</a></span>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" asp-controller="Home" asp-action="Index">Home</a>
+                    <a class="mdl-navigation__link" asp-controller="City" asp-action="Index">City</a>
+                    <a class="mdl-navigation__link" asp-controller="Carrier" asp-action="Index">Carriers</a>
+                    <a class="mdl-navigation__link" asp-controller="Branch" asp-action="Index">Branch</a>
+                </nav>
+            </div>
+
+
+
+
+
+
+200px
+
+custom-header mdl-layout__header mdl-layout__header--waterfall
+
+
+
+@page
+@model BusStationIS.Data.Models.Carrier
+@{
+    ViewData["Title"] = "Create Carrier";
+}
+
+<br />
+<h2 class="text-info">Create New Carrier</h2>
+<br />
+
+<div class="border">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger">
+        </div>
+        <div class="container" style="padding:30px;">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="Name"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input asp-for="Name" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label>Grad:</label>
+                    </div>
+                    <div class="col-sm-4">
+
+                    </div>
+                    <span asp-validation-for="Address.City" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="Address.StreetName"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input asp-for="Address.StreetName" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Address.StreetName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <label asp-for="Address.StreetNumber"></label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input asp-for="Address.StreetNumber" class="form-control" />
+                    </div>
+                    <span asp-validation-for="Address.StreetNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-2 offset-sm-2">
+                        <input type="submit" value="Create" class="btn btn-primary form-control" />
+                    </div>
+                    <div class="col-sm-2">
+                        <a asp-page="Index" class="btn btn-success form-control">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
