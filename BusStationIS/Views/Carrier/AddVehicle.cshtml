@@ -1,0 +1,100 @@
+﻿@model BusStationIS.Models.Carrier.CarrierVehicleInputModel;
+@{
+    ViewData["Title"] = "AddVehicle";
+}
+
+
+<div class="container">
+    <div class="page-header clearfix datailHeading">
+        <h2 class="text-info">Create New Vehicle</h2>
+    </div>
+</div>
+
+
+<div class="row justify-content-center">
+    <div class="col-8">
+        @if (TempData["msg"] != null)
+        {
+            <br />
+            <div id="containerInfo">
+                <p>
+                    @TempData["msg"]
+                </p>
+
+            </div>
+            <br />
+
+        }
+        <div class="border">
+            <form asp-action="AddVehicle">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CarrierId" />
+                <div class="container" style="padding:30px;background-color:lightskyblue;">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label asp-for="RegistrationNumber"></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input asp-for="RegistrationNumber" class="form-control" />
+                            </div>
+                            <span asp-validation-for="RegistrationNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label>Vehicle type:</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <select asp-for="VehicleType" class="form-group selcls">
+                                    @foreach (var type in Model.VehicleTypes)
+                                    {
+                                        <option>@type</option>
+                                    }
+                                </select>
+                            </div>
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label asp-for="Capacity"></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input asp-for="Capacity" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Capacity" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label asp-for="Available"></label>
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="checkbox" asp-for="Available" class="form-control" />
+                            </div>
+                            <span asp-validation-for="Available" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-2 offset-sm-2">
+                                <input type="submit" value="Submit" class="btn btn-primary form-control" />
+                            </div>
+                            <div class="col-sm-2">
+                                <a asp-controller="Carrier" asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+

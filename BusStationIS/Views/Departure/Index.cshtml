@@ -1,0 +1,74 @@
+﻿@model BusStationIS.Models.Departure.DepartureIndexModel;
+@{
+    ViewData["Title"] = "Departure";
+}
+
+<div class="container">
+    <div class="page-header clearfix datailHeading">
+        <h2 class="text-muted">Departure Index Page</h2>
+    </div>
+    <a asp-controller="Departure" asp-action="Create" class="btn btn-outline-primary btn-lg">Create New Departure</a>
+</div>
+
+<div><br /></div>
+
+<div class="jumbotron bg-light">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">More Info</th>
+                <th scope="col">City From</th>
+                <th scope="col">City To</th>
+                <th scope="col">Carrier</th>
+                <th scope="col">Price</th>
+                <th scope="col">Number of Seats</th>
+                <th scope="col">Distance</th>
+                <th scope="col">Options</th>
+                <th scope="col">Generate</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var dept in Model.Departures)
+            {
+                <tr>
+                    <td>
+                        <form asp-action="Detail" asp-controller="Departure" asp-route-id=@dept.Id>
+                            <button type="submit" class="btn btn-outline-primary" aria-label="Info">
+                                <i class="mdi mdi-information"></i> Info
+                            </button>
+                        </form>
+                    </td>
+
+                    <td>@dept.CityFrom.Name</td>
+                    <td>@dept.CityTo.Name</td>
+                    <td>@dept.Carrier.Name</td>
+                    <td>@dept.PriceOfCard</td>
+                    <td>@dept.NumberOfSeats</td>
+                    <td>@dept.Distance.DistanceBetween</td>
+                    <td>
+                        <div class="col-auto">
+                            <form asp-action="Edit" asp-controller="Departure" asp-route-id=@dept.Id>
+                                <button type="submit" class="btn btn-success" aria-label="Info">
+                                    <i class="mdi mdi-pencil"></i> Edit
+                                </button>
+                            </form>
+                            <form asp-action="Delete" asp-route-id="@dept.Id" data-ajax="true" data-ajax-success="deleteItem(this)">
+                                <button type="submit" class="btn btn-danger" aria-label="Delete">
+                                    <i class="mdi mdi-minus-circle" aria-hidden="true"></i> Delete
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                    <td>
+                        <form asp-action="GenerateWord" asp-controller="Departure" asp-route-id=@dept.Id>
+                            <button type="submit" class="btn btn-primary" aria-label="Info">
+                                <i class="mdi mdi-file-word"></i> Generate Word
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

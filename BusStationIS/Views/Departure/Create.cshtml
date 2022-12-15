@@ -1,0 +1,126 @@
+﻿@model BusStationIS.Models.Departure.DepartureInputModel;
+@{
+    ViewData["Title"] = "Create Departure";
+}
+
+<div class="container">
+    <div class="page-header clearfix datailHeading">
+        <h2 class="text-muted">Departure Create Page</h2>
+    </div>
+</div>
+
+
+<div class="row justify-content-center">
+    <div class="col-8">
+        @if (TempData["msg"] != null)
+        {
+            <br />
+            <div id="containerInfo">
+                <p>
+                    @TempData["msg"]
+                </p>
+
+            </div>
+            <br />
+
+        }
+        <div class="border">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="container" style="padding:30px;background-color:lightskyblue;">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label>City From Name:</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <select asp-for="CityTo" class="form-group selcls">
+                                    @foreach (var city in Model.Cities)
+                                    {
+                                        <option>@city.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label>City To Name:</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <select asp-for="CityFrom" class="form-group selcls">
+                                    @foreach (var city in Model.Cities)
+                                    {
+                                        <option>@city.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label>Carrier Name:</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <select asp-for="Carrier" class="form-group selcls">
+                                    @foreach (var carrier in Model.Carriers)
+                                    {
+                                        <option>@carrier.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label>Payment category:</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <select asp-for="PaymentCategory" class="form-group selcls">
+                                    @foreach (var payment in Model.PaymentCategories)
+                                    {
+                                        <option>@payment.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label>Registration Number:</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <select asp-for="VehicleRegistration" class="form-group selcls">
+                                    @foreach (var city in Model.Vehicles)
+                                    {
+                                        <option>@city.RegistrationNumber</option>
+                                    }
+                                </select>
+                            </div>
+                            <span class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm-2 offset-sm-2">
+                                <input type="submit" value="Submit" class="btn btn-primary form-control" />
+                            </div>
+                            <div class="col-sm-2">
+                                <a asp-controller="Departure" asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

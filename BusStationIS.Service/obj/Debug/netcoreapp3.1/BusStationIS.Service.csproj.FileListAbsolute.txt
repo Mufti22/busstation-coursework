@@ -1,0 +1,13 @@
+C:\Users\Baharov\Downloads\bus-station-master\BusStationIS.Service\bin\Debug\netcoreapp3.1\BusStationIS.Service.deps.json
+C:\Users\Baharov\Downloads\bus-station-master\BusStationIS.Service\bin\Debug\netcoreapp3.1\BusStationIS.Service.dll
+C:\Users\Baharov\Downloads\bus-station-master\BusStationIS.Service\bin\Debug\netcoreapp3.1\BusStationIS.Service.pdb
+C:\Users\Baharov\Downloads\bus-station-master\BusStationIS.Service\bin\Debug\netcoreapp3.1\BusStationIS.Data.dll
+C:\Users\Baharov\Downloads\bus-station-master\BusStationIS.Service\bin\Debug\netcoreapp3.1\BusStationIS.Data.pdb
+C:\Users\Baharov\Downloads\bus-station-master\BusStationIS.Service\obj\Debug\netcoreapp3.1\BusStationIS.Service.csproj.AssemblyReference.cache
+C:\Users\Baharov\Downloads\bus-station-master\BusStationIS.Service\obj\Debug\netcoreapp3.1\BusStationIS.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Baharov\Downloads\bus-station-master\BusStationIS.Service\obj\Debug\netcoreapp3.1\BusStationIS.Service.AssemblyInfoInputs.cache
+C:\Users\Baharov\Downloads\bus-station-master\BusStationIS.Service\obj\Debug\netcoreapp3.1\BusStationIS.Service.AssemblyInfo.cs
+C:\Users\Baharov\Downloads\bus-station-master\BusStationIS.Service\obj\Debug\netcoreapp3.1\BusStationIS.Service.csproj.CoreCompileInputs.cache
+C:\Users\Baharov\Downloads\bus-station-master\BusStationIS.Service\obj\Debug\netcoreapp3.1\BusStationIS.Service.csproj.CopyComplete
+C:\Users\Baharov\Downloads\bus-station-master\BusStationIS.Service\obj\Debug\netcoreapp3.1\BusStationIS.Service.dll
+C:\Users\Baharov\Downloads\bus-station-master\BusStationIS.Service\obj\Debug\netcoreapp3.1\BusStationIS.Service.pdb

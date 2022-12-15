@@ -1,0 +1,43 @@
+﻿@model BusStationIS.Models.CityIndexModel;
+
+@{
+    ViewData["Title"] = "City Index";
+}
+
+
+<div class="container">
+    <div class="page-header clearfix datailHeading">
+        <h2 class="text-muted">City Index Page</h2>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-auto">
+ 
+        <table class="table table-responsive table-bordered table-hover table-condensed" id="cityIndexTable">
+            <thead class="thead-dark centered responsive-table striped">
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Zip Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var assets in Model.Cities)
+                {
+                    <tr class="assetRow">
+                        <td class="" id="detailImage">
+                            <a asp-controller="City" asp-action="Detail" asp-route-id="@assets.Id">
+                                <img src="@assets.ImageUrl" class="imageCell" />
+                            </a>
+                        </td>
+                        <td class="">@assets.Name</td>
+                        <td class="">@assets.ZipCode</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+

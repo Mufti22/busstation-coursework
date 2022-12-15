@@ -1,0 +1,54 @@
+﻿@model BusStationIS.Models.Departure.SpecificallyDepartureIndex;
+@{
+    ViewData["Title"] = "Create Specifically Departure";
+}
+
+<div class="container">
+   <div class="page-header clearfix datailHeading">
+        <h2 class="text-muted">Create Specifically Departure Page</h2>
+   </div>
+</div>
+
+<div class="jumbotron bg-light">
+    <form asp-controller="Departure" asp-action="MakeSpecDeparture">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label asp-for="DateTime"></label>
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="DateTime" type="date" class="form-control" />
+                </div>
+                <span asp-validation-for="DateTime" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Departure:</label>
+                </div>
+                <div class="col-sm-4">
+                    <select asp-for="Departure" class="form-group selcls">
+                        @foreach (var departure in Model.Departures)
+                        {
+                            <option>@departure.CityFrom.Name - @departure.CityTo.Name (@departure.Carrier.Name)</option>
+                        }
+                    </select>
+                </div>
+                <span class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-sm-2 offset-sm-2">
+                    <input type="submit" value="Submit" class="btn btn-primary form-control" />
+                </div>
+                <div class="col-sm-2">
+                    <a asp-controller="Departure" asp-action="Index" class="btn btn-success form-control">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,113 @@
+﻿@model BusStationIS.Models.CityDetailModel
+
+@{
+    ViewData["Title"] = @Model.Name;
+}
+
+
+<div class="container">
+    <div class="page-header clearfix datailHeading">
+        <h2 class="text-muted">View City Item</h2>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-3">
+            <div>
+                <img class="imageCell" src="@Model.ImageUrl" />
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="nameItem">City name:</div>
+            <p id="itemName">@Model.Name</p>
+            <div class="nameItem">Postal code: </div>
+            <p id="itemZip">@Model.ZipCode</p>
+        </div>
+        <div class="col-md-3">
+            <div class="nameItem">Current Temperature:</div>
+            <p id="itemName">@Model.OpenWeather.Result.Temp  ‎°C</p>
+            <div class="nameItem">Current Conditions:</div>
+            <p id="itemName">@Model.OpenWeather.Result.Summary</p>
+        </div>
+        <div class="col-md-3">
+            <div class="nameItem">Current Pressure:</div>
+            <p id="itemName">@Model.OpenWeather.Result.Pressure mbar</p>
+            <div class="nameItem">
+                Current Wind Speed:
+            </div>
+            <p id="itemName">@Model.OpenWeather.Result.WindSpeed m/s</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <h4>Bus Stations</h4>
+        <table class="table table-bordered table-hover table-condensed">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Address</th>
+                    <th>Contacts</th>
+                </tr>
+            </thead>
+            @if (Model.BusStations == null || Model.BusStations.Count() == 0)
+            {
+                <div>
+                    <p>
+                        No data for diplay.
+
+                    </p>
+                </div>
+            }
+            else
+            {
+                <tbody>
+                    @foreach (var station in Model.BusStations)
+                    {
+                        <tr>
+                            <td>@station.Address.StreetName br.@station.Address.StreetNumber.</td>
+                            <td>There will be diplayed contact number and type</td>
+                        </tr>
+                    }
+                </tbody>
+
+            }
+        </table>
+    </div>
+    <div class="col-lg-6">
+        <h4>Carrier</h4>
+        <table class="table table-bordered table-hover table-condensed">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Contacts</th>
+                </tr>
+            </thead>
+            @if (Model.Carriers == null || Model.Carriers.Count() == 0)
+            {
+                <div>
+                    <p>
+                        No data for diplay.
+                    </p>
+                </div>
+            }
+            else
+            {
+                <tbody>
+                    @foreach (var carrier in Model.Carriers)
+                    {
+                        <tr>
+                            <td>@carrier.Name</td>
+                            <td>@carrier.Address.StreetName br.@carrier.Address.StreetNumber.</td>
+                            <td>There will be diplayed contact number and type</td>
+                        </tr>
+                    }
+                </tbody>
+
+            }
+        </table>
+    </div>
+</div>
+

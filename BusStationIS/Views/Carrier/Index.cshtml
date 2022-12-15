@@ -1,0 +1,78 @@
+﻿@model BusStationIS.Models.CarrierViewModel.CarrierIndexModel;
+
+@{
+    ViewData["Title"] = "Carrier Index";
+}
+
+
+<div class="container">
+    <div class="page-header clearfix datailHeading">
+        <h2 class="text-muted">Carrier Index Page</h2>
+    </div>
+
+</div>
+
+
+<div class="row justify-content-center">
+
+    <div class="col-auto">
+        <a class="btn btn-outline-primary btn-lg" asp-controller="Carrier" asp-action="Create">Create New Carrier</a>
+        <div>
+            <p></p>
+        </div>
+        <table class="table table-bordered table-hover table-condensed table-responsive cityIndexTable">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Contacts</th>
+                    <th>Number of Vehicles</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var carrier in Model.Carriers)
+                {
+                <tr class="assetRow">
+                    <td class="">
+                        <a asp-controller="Carrier" asp-action="Detail" asp-route-id="@carrier.Id">
+                            @carrier.Name
+                        </a>
+                    </td>
+                    <td class="">@carrier.Address.StreetName br.@carrier.Address.StreetNumber (@carrier.Address.City.Name)</td>
+                    <td class="">
+                        @if (carrier.Contacts.Count() == 0)
+                        {
+                            <p>
+                                No contacts to display.
+                            </p>
+                        }
+                        else
+                        {
+                            @carrier.Contacts
+
+                        }
+                    </td>
+                    <td class="">@carrier.Vehicles.Count()</td>
+                    <td>
+                        <div class="col-auto">
+                            <form asp-action="Edit" asp-route-id="@carrier.Id" data-ajax="true">
+                                <button type="submit" class="btn btn-default" aria-label="Edit">
+                                    <i class="mdi mdi-pencil" aria-hidden="true"></i>  Edit
+                                </button>
+                            </form>
+                            <form asp-action="Delete" asp-route-id="@carrier.Id" data-ajax="true"  data-ajax-success="deleteItem(this)">
+                                <button type="submit" class="btn btn-default" aria-label="Delete">
+                                    <i class="mdi mdi-minus-circle" aria-hidden="true"></i> Delete
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+

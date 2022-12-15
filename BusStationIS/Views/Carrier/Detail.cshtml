@@ -1,0 +1,70 @@
+﻿@model BusStationIS.Models.CarrierViewModel.CarrierDetailModel;
+@{
+    ViewData["Title"] = "Подробности";
+}
+
+<div class="container">
+        <div class="page-header clearfix datailHeading">
+            <h2 class="text-muted">View Carrier Item</h2>
+        </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <h4>Carrier Name:</h4>
+                <p>@Model.Name</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h4>Carrier Address:</h4>
+            <p>@Model.Address.StreetName br.@Model.Address.StreetNumber (@Model.Address.City.Name)</p>
+        </div>
+        <div class="col-md-4">
+            <h4>Contacts:</h4>
+            <p>@Model.Contacts</p>
+            <a asp-controller="Carrier" asp-action="AddContact" asp-route-id="@Model.Id" class="btn btn-primary btn-lg">Add New Contact</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-6">
+    <h4>Vehicles</h4>
+    <table class="table table-bordered table-hover table-condensed">
+        <thead class="thead-dark">
+            <tr>
+                <th>Registration Number</th>
+                <th>Available</th>
+                <th>Capacity</th>
+                <th>Vehnicle Type</th>
+            </tr>
+        </thead>
+        @if (Model.Vehicles == null || Model.Vehicles.Count() == 0)
+        {
+            <div>
+                <p>
+                    No data for diplay.
+                </p>
+            </div>
+        }
+        else
+        {
+            <tbody>
+                @foreach (var vehicile in Model.Vehicles)
+                {
+                    <tr>
+                        <td>@vehicile.RegistrationNumber</td>
+                        <td>@vehicile.Available</td>
+                        <td>@vehicile.Capacity</td>
+                        <td>@vehicile.VehicleType</td>
+                    </tr>
+                }
+            </tbody>
+
+        }
+    </table>
+</div>
+<div class="col-lg-2">
+    <a class="btn btn-outline-primary" asp-controller="Carrier" asp-action="AddVehicle" asp-route-id="@Model.Id">Add New Vehicle</a>
+</div>
